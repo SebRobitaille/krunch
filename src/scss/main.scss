@@ -86,6 +86,7 @@ $font-main: "Open Sans", sans-serif;
 $color-blue: #0082f3;
 $color-text-main: rgb(92, 92, 92);
 $color-nav: #333;
+$color-overlay: rgba(34, 34, 34, 0.9);
 
 $color-button-blue-hover: #222;
 $color-nav-blue-hover: #4d8cf5;
@@ -272,6 +273,11 @@ $mq-desktop: 1023px;
       width: 100%;
       padding: 0.25rem;
       background-color: transparent;
+      transition: all 0.4s ease-in;
+      &.fixed-nav {
+        position: fixed;
+        background-color: $color-overlay;
+      }
       .logo-container {
         margin-inline: 1rem;
         padding: 1rem;
@@ -341,9 +347,6 @@ $mq-desktop: 1023px;
           transform: translateY(0%);
         }
       }
-      @media (min-width: $mq-desktop) {
-        width: 90%;
-      }
     }
     // Hero content
     .hero-content {
@@ -399,8 +402,8 @@ $mq-desktop: 1023px;
 }
 
 // Add active class for sticky nav here
-.nav-link.active-section {
-  color: $color-nav-blue-hover;
+.nav-link.active-link {
+  color: $color-nav-blue-hover !important;
 }
 
 // delete this after intersection observer works

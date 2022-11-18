@@ -231,6 +231,11 @@ a {
   width: 100%;
   padding: 0.25rem;
   background-color: transparent;
+  transition: all 0.4s ease-in;
+}
+.hero-section .hero-container .nav-container.fixed-nav {
+  position: fixed;
+  background-color: rgba(34, 34, 34, 0.9);
 }
 .hero-section .hero-container .nav-container .logo-container {
   margin-inline: 1rem;
@@ -307,11 +312,6 @@ a {
   visibility: visible;
   transform: translateY(0%);
 }
-@media (min-width: 1023px) {
-  .hero-section .hero-container .nav-container {
-    width: 90%;
-  }
-}
 .hero-section .hero-container .hero-content .hero-heading {
   color: white;
   margin: 1.25 auto 0.75rem;
@@ -372,8 +372,8 @@ a {
   color: #4d8cf5;
 }
 
-.nav-link.active-section {
-  color: #4d8cf5;
+.nav-link.active-link {
+  color: #4d8cf5 !important;
 }
 
 section {

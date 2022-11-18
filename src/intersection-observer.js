@@ -1,10 +1,14 @@
+let viewportHeight = window.innerHeight
+let triggerHeight = viewportHeight / 4
 let heroSection
 let sections
+let navBar = document.getElementById("nav")
 window.addEventListener(
   "load",
   (event) => {
     heroSection = document.getElementById("top")
     sections = document.querySelectorAll("section")
+
     createObserver()
   },
   false
@@ -28,7 +32,7 @@ function createObserver() {
 
 function buildThresholdList() {
   let thresholds = []
-  let numSteps = 1
+  let numSteps = 5
 
   for (let i = 1.0; i <= numSteps; i++) {
     let ratio = i / numSteps
@@ -41,22 +45,42 @@ function buildThresholdList() {
 
 function handleIntersect(entries, observer) {
   entries.forEach((entry) => {
-    if (entry.isIntersecting && entry.boundingClientRect.y < 0) {
+    if (entry.isIntersecting) {
       entry.target.classList.add("active-section")
-      let id = entry.target.getAttribute("id")
-      console.log(id)
+      toggleStickyNav()
+      activeLink()
+      // visibleSections()
     } else {
       entry.target.classList.remove("active-section")
     }
   })
 }
 
-// const navLinks = document.querySelectorAll(".nav-link")
-// navLinks.forEach((navLink) => {
-//   let href = navLink.getAttribute("href")
-//   console.log(href.slice(1, href.length))
-// })
+function toggleStickyNav() {
+  if (!heroSection.classList.contains("active-section")) {
+    navBar.classList.add("fixed-nav")
+  } else {
+    navBar.classList.remove("fixed-nav")
+  }
+}
 
-// function highlightActive(section) {
-//   let highlightColor = "#0082f3"
+function activeLink() {
+  const navLinks = document.querySelectorAll(".nav-link")
+  navLinks.forEach((link) => {
+    let linkHref = link.getAttribute("href")
+    let idSearch = linkHref.slice(1, linkHref.length)
+    // console.log(linkHref)
+    // console.log(idSearch)
+    let section = document.getElementById(`${idSearch}`)
+    if (section.classList.contains("active-section")) {
+      link.classList.add("active-link")
+    } else {
+      link.classList.remove("active-link")
+    }
+  })
+}
+
+// function visibleSections() {
+//   const visibles = document.querySelectorAll(".active-section")
+//   console.log(visibles)
 // }

@@ -118,8 +118,11 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"intersection-observer.js":[function(require,module,exports) {
+var viewportHeight = window.innerHeight;
+var triggerHeight = viewportHeight / 4;
 var heroSection;
 var sections;
+var navBar = document.getElementById("nav");
 window.addEventListener("load", function (event) {
   heroSection = document.getElementById("top");
   sections = document.querySelectorAll("section");
@@ -140,7 +143,7 @@ function createObserver() {
 }
 function buildThresholdList() {
   var thresholds = [];
-  var numSteps = 1;
+  var numSteps = 5;
   for (var i = 1.0; i <= numSteps; i++) {
     var ratio = i / numSteps;
     thresholds.push(ratio);
@@ -150,24 +153,42 @@ function buildThresholdList() {
 }
 function handleIntersect(entries, observer) {
   entries.forEach(function (entry) {
-    if (entry.isIntersecting && entry.boundingClientRect.y < 0) {
+    if (entry.isIntersecting) {
       entry.target.classList.add("active-section");
-      var id = entry.target.getAttribute("id");
-      console.log(id);
+      toggleStickyNav();
+      activeLink();
+      // visibleSections()
     } else {
       entry.target.classList.remove("active-section");
     }
   });
 }
+function toggleStickyNav() {
+  if (!heroSection.classList.contains("active-section")) {
+    navBar.classList.add("fixed-nav");
+  } else {
+    navBar.classList.remove("fixed-nav");
+  }
+}
+function activeLink() {
+  var navLinks = document.querySelectorAll(".nav-link");
+  navLinks.forEach(function (link) {
+    var linkHref = link.getAttribute("href");
+    var idSearch = linkHref.slice(1, linkHref.length);
+    // console.log(linkHref)
+    // console.log(idSearch)
+    var section = document.getElementById("".concat(idSearch));
+    if (section.classList.contains("active-section")) {
+      link.classList.add("active-link");
+    } else {
+      link.classList.remove("active-link");
+    }
+  });
+}
 
-// const navLinks = document.querySelectorAll(".nav-link")
-// navLinks.forEach((navLink) => {
-//   let href = navLink.getAttribute("href")
-//   console.log(href.slice(1, href.length))
-// })
-
-// function highlightActive(section) {
-//   let highlightColor = "#0082f3"
+// function visibleSections() {
+//   const visibles = document.querySelectorAll(".active-section")
+//   console.log(visibles)
 // }
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -194,7 +215,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54195" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51489" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
