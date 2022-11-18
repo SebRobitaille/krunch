@@ -117,62 +117,59 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-  return bundleURL;
-}
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-  return '/';
-}
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
+})({"intersection-observer.js":[function(require,module,exports) {
+var heroSection;
+var sections;
+window.addEventListener("load", function (event) {
+  heroSection = document.getElementById("top");
+  sections = document.querySelectorAll("section");
+  createObserver();
+}, false);
+function createObserver() {
+  var observer;
+  var options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: buildThresholdList()
   };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
+  observer = new IntersectionObserver(handleIntersect, options);
+  observer.observe(heroSection);
+  sections.forEach(function (section) {
+    observer.observe(section);
+  });
 }
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
+function buildThresholdList() {
+  var thresholds = [];
+  var numSteps = 1;
+  for (var i = 1.0; i <= numSteps; i++) {
+    var ratio = i / numSteps;
+    thresholds.push(ratio);
   }
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-    cssTimeout = null;
-  }, 50);
+  thresholds.push(0);
+  return thresholds;
 }
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\images\\hero.jpg":[["hero.0f0b5fd4.jpg","images/hero.jpg"],"images/hero.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function handleIntersect(entries, observer) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting && entry.boundingClientRect.y < 0) {
+      entry.target.classList.add("active-section");
+      var id = entry.target.getAttribute("id");
+      console.log(id);
+    } else {
+      entry.target.classList.remove("active-section");
+    }
+  });
+}
+
+// const navLinks = document.querySelectorAll(".nav-link")
+// navLinks.forEach((navLink) => {
+//   let href = navLink.getAttribute("href")
+//   console.log(href.slice(1, href.length))
+// })
+
+// function highlightActive(section) {
+//   let highlightColor = "#0082f3"
+// }
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -341,5 +338,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/main.77bb5cfd.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","intersection-observer.js"], null)
+//# sourceMappingURL=/intersection-observer.e4919133.js.map
