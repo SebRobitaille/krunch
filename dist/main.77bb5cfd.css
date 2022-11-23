@@ -431,7 +431,7 @@ section {
 
 .pf1::before {
   content: "GRAPHIC DESIGN";
-  position: absolute;
+  position: relative;
   display: block;
   width: 1000px;
   height: 1000px;
@@ -440,6 +440,28 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 99;
+}
+
+.testimonials-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(/testimonials.6958d63a.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: white;
+}
+.testimonials-section .overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.testimonials-section .overlay .testimonial-items {
+  border: 1px solid white;
+  margin: 0 auto;
+  padding: 1rem;
+  overflow-x: hidden;
+  width: 80%;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

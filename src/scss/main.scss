@@ -425,6 +425,8 @@ section {
   display: none;
 }
 
+// Portfolio section
+
 .portfolio-section {
   @include flex-center();
   position: relative;
@@ -455,7 +457,7 @@ section {
 
 .pf1::before {
   content: "GRAPHIC DESIGN";
-  position: absolute;
+  position: relative;
   display: block;
   width: 1000px;
   height: 1000px;
@@ -464,4 +466,25 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 99;
+}
+
+// Testimonial section
+.testimonials-section {
+  @include flex-center();
+  flex-direction: column;
+  background-image: url(../images/testimonials.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: white;
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    .testimonial-items {
+      border: 1px solid white;
+      margin: 0 auto;
+      padding: 1rem;
+      overflow-x: hidden;
+      width: 80%;
+    }
+  }
 }
