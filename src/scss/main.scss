@@ -216,11 +216,12 @@ $mq-desktop: 1023px;
   border-radius: 0.3125em;
   margin: 0.625em;
   padding: 0.625em 1.875em;
-  color: white;
+  font-weight: 600;
 }
 
 .button-blue {
   background-color: $color-nav-blue-hover;
+  color: white;
 }
 
 .button-blue:hover {
@@ -230,10 +231,18 @@ $mq-desktop: 1023px;
 .button-transparent {
   background-color: transparent;
   border: 1px solid $color-nav-blue-hover;
+  color: rgb(51, 51, 51);
 }
 
 .button-transparent:hover {
   background-color: $color-nav-blue-hover;
+}
+
+.cta-div {
+  padding: 2.33em;
+  h3 {
+    font-size: 1.2em;
+  }
 }
 
 // Sections
@@ -410,5 +419,49 @@ $mq-desktop: 1023px;
 
 section {
   min-width: 100vh;
-  overflow: hidden;
+  // overflow-x: hidden;
+}
+#top {
+  display: none;
+}
+
+.portfolio-section {
+  @include flex-center();
+  position: relative;
+  flex-direction: column;
+  .section-header {
+    @include flex-center();
+    flex-direction: column;
+  }
+  .grid {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr;
+    @media (min-width: $mq-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: $mq-desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.pf1 {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.pf1::before {
+  content: "GRAPHIC DESIGN";
+  position: absolute;
+  display: block;
+  width: 1000px;
+  height: 1000px;
+  background-color: pink;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
 }

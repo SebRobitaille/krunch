@@ -182,11 +182,12 @@ a {
   border-radius: 0.3125em;
   margin: 0.625em;
   padding: 0.625em 1.875em;
-  color: white;
+  font-weight: 600;
 }
 
 .button-blue {
   background-color: #4d8cf5;
+  color: white;
 }
 
 .button-blue:hover {
@@ -196,10 +197,18 @@ a {
 .button-transparent {
   background-color: transparent;
   border: 1px solid #4d8cf5;
+  color: rgb(51, 51, 51);
 }
 
 .button-transparent:hover {
   background-color: #4d8cf5;
+}
+
+.cta-div {
+  padding: 2.33em;
+}
+.cta-div h3 {
+  font-size: 1.2em;
 }
 
 .fixed-nav {
@@ -378,7 +387,59 @@ a {
 
 section {
   min-width: 100vh;
-  overflow: hidden;
+}
+
+#top {
+  display: none;
+}
+
+.portfolio-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+.portfolio-section .section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.portfolio-section .grid {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 767px) {
+  .portfolio-section .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1023px) {
+  .portfolio-section .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pf1 {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.pf1::before {
+  content: "GRAPHIC DESIGN";
+  position: absolute;
+  display: block;
+  width: 1000px;
+  height: 1000px;
+  background-color: pink;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
