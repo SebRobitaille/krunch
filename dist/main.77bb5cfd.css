@@ -182,11 +182,12 @@ a {
   border-radius: 0.3125em;
   margin: 0.625em;
   padding: 0.625em 1.875em;
-  color: white;
+  font-weight: 600;
 }
 
 .button-blue {
   background-color: #4d8cf5;
+  color: white;
 }
 
 .button-blue:hover {
@@ -196,37 +197,11 @@ a {
 .button-transparent {
   background-color: transparent;
   border: 1px solid #4d8cf5;
+  color: rgb(51, 51, 51);
 }
 
 .button-transparent:hover {
   background-color: #4d8cf5;
-}
-
-.section-header {
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
-}
-.section-header h2 {
-  font-size: 1.75rem;
-}
-.section-header h5 {
-  font-size: 0.875rem;
-}
-@media (min-width: 767px) {
-  .section-header h5 {
-    font-size: 1rem;
-  }
-}
-@media (min-width: 1023px) {
-  .section-header h5 {
-    font-size: 1.125rem;
-  }
-}
-
-.div-line {
-  width: 70px;
-  height: 2px;
-  margin: 1.25rem auto 0;
 }
 
 .fixed-nav {
@@ -409,34 +384,8 @@ a {
 }
 
 section {
-  min-width: 100vw;
-  margin-bottom: 3rem;
-  padding-top: 3rem;
-}
-
-.about-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 1rem;
-}
-.about-section .flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-@media (min-width: 767px) {
-  .about-section .flex-center {
-    flex-direction: row;
-  }
-}
-.about-section .flex-center .p-div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  min-width: 100vh;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

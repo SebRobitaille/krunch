@@ -216,11 +216,12 @@ $mq-desktop: 1023px;
   border-radius: 0.3125em;
   margin: 0.625em;
   padding: 0.625em 1.875em;
-  color: white;
+  font-weight: 600;
 }
 
 .button-blue {
   background-color: $color-nav-blue-hover;
+  color: white;
 }
 
 .button-blue:hover {
@@ -230,6 +231,7 @@ $mq-desktop: 1023px;
 .button-transparent {
   background-color: transparent;
   border: 1px solid $color-nav-blue-hover;
+  color: rgb(51, 51, 51);
 }
 
 .button-transparent:hover {
@@ -433,29 +435,6 @@ $mq-desktop: 1023px;
 // delete this after intersection observer works
 
 section {
-  min-width: 100vw;
-  // overflow: hidden;
-  margin-bottom: 3rem;
-  padding-top: 3rem;
-}
-
-// About section
-
-.about-section {
-  @include flex-center();
-  flex-direction: column;
-  padding: 1rem;
-  .flex-center {
-    @include flex-center();
-    flex-direction: column;
-    @media (min-width: $mq-tablet) {
-      flex-direction: row;
-    }
-    .p-div {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-    }
-  }
+  min-width: 100vh;
+  overflow: hidden;
 }
