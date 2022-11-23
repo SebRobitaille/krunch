@@ -236,6 +236,29 @@ $mq-desktop: 1023px;
   background-color: $color-nav-blue-hover;
 }
 
+.section-header {
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  h2 {
+    font-size: 1.75rem;
+  }
+  h5 {
+    font-size: 0.875rem;
+    @media (min-width: $mq-tablet) {
+      font-size: 1rem;
+    }
+    @media (min-width: $mq-desktop) {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.div-line {
+  width: 70px;
+  height: 2px;
+  margin: 1.25rem auto 0;
+}
+
 // Sections
 
 // Fixed Nav
@@ -256,13 +279,12 @@ $mq-desktop: 1023px;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
   overflow: hidden;
+  min-width: 100vw;
   .hero-container {
     position: relative;
     min-height: clamp(770px, 100vh, 1100px);
-    display: flex;
+    @include flex-center();
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding-top: 1.8rem;
     .nav-container {
       position: absolute;
@@ -350,9 +372,11 @@ $mq-desktop: 1023px;
     }
     // Hero content
     .hero-content {
+      max-width: 80%;
       .hero-heading {
         color: white;
-        margin: 1.25 auto 0.75rem;
+        margin: 1.25rem auto 0.75rem;
+        text-align: center;
         font-size: 2.25rem;
         line-height: 1.5;
         font-weight: 400;
@@ -409,6 +433,29 @@ $mq-desktop: 1023px;
 // delete this after intersection observer works
 
 section {
-  min-width: 100vh;
-  overflow: hidden;
+  min-width: 100vw;
+  // overflow: hidden;
+  margin-bottom: 3rem;
+  padding-top: 3rem;
+}
+
+// About section
+
+.about-section {
+  @include flex-center();
+  flex-direction: column;
+  padding: 1rem;
+  .flex-center {
+    @include flex-center();
+    flex-direction: column;
+    @media (min-width: $mq-tablet) {
+      flex-direction: row;
+    }
+    .p-div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
 }
