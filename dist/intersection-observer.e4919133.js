@@ -175,8 +175,6 @@ function activeLink() {
   navLinks.forEach(function (link) {
     var linkHref = link.getAttribute("href");
     var idSearch = linkHref.slice(1, linkHref.length);
-    // console.log(linkHref)
-    // console.log(idSearch)
     var section = document.getElementById("".concat(idSearch));
     if (section.classList.contains("active-section")) {
       link.classList.add("active-link");
@@ -215,7 +213,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62480" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57787" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

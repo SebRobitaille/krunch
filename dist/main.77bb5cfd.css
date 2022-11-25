@@ -73,6 +73,10 @@ select {
   }
 }
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-family: "Open Sans", sans-serif;
   color: #5c5c5c;
   font-size: 0.9375rem;
@@ -197,11 +201,39 @@ a {
 .button-transparent {
   background-color: transparent;
   border: 1px solid #4d8cf5;
-  color: rgb(51, 51, 51);
+  color: #222;
 }
 
 .button-transparent:hover {
   background-color: #4d8cf5;
+  color: #fff;
+}
+
+.section-header {
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+.section-header h2 {
+  font-size: 1.75rem;
+}
+.section-header h5 {
+  font-size: 0.875rem;
+}
+@media (min-width: 767px) {
+  .section-header h5 {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1023px) {
+  .section-header h5 {
+    font-size: 1.125rem;
+  }
+}
+
+.div-line {
+  width: 70px;
+  height: 2px;
+  margin: 1.25rem auto 0;
 }
 
 .fixed-nav {
@@ -228,6 +260,7 @@ a {
 .hero-section .hero-container .nav-container {
   position: absolute;
   top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -239,10 +272,11 @@ a {
 .hero-section .hero-container .nav-container.fixed-nav {
   position: fixed;
   background-color: rgba(34, 34, 34, 0.9);
+  max-height: 100px;
 }
 .hero-section .hero-container .nav-container .logo-container {
   margin-inline: 1rem;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 .hero-section .hero-container .nav-container .nav-toggle {
   color: white;
@@ -361,6 +395,9 @@ a {
   padding: 1em;
   flex-direction: column;
 }
+.hero-section .hero-container .hero-content .button-container .button {
+  color: white;
+}
 @media (min-width: 479px) {
   .hero-section .hero-container .hero-content .button-container {
     flex-direction: row;
@@ -383,9 +420,19 @@ a {
   color: #4d8cf5 !important;
 }
 
-section {
-  min-width: 100vh;
-  overflow: hidden;
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (min-width: 767px) {
+  .about-section {
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-section .about-header {
+    grid-column: span 2;
+  }
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

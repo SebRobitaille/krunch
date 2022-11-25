@@ -69,8 +69,6 @@ function activeLink() {
   navLinks.forEach((link) => {
     let linkHref = link.getAttribute("href")
     let idSearch = linkHref.slice(1, linkHref.length)
-    // console.log(linkHref)
-    // console.log(idSearch)
     let section = document.getElementById(`${idSearch}`)
     if (section.classList.contains("active-section")) {
       link.classList.add("active-link")
