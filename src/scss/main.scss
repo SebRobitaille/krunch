@@ -91,6 +91,8 @@ $color-overlay: rgba(34, 34, 34, 0.9);
 $color-button-blue-hover: #222;
 $color-nav-blue-hover: #4d8cf5;
 
+$bg-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+
 // General styles
 body {
   display: flex;
@@ -104,6 +106,10 @@ body {
   font-weight: 400;
   background-color: #fff;
   overflow-x: hidden;
+}
+
+section {
+  margin-bottom: 1rem;
 }
 
 h1 {
@@ -221,6 +227,7 @@ $mq-desktop: 1023px;
   margin: 0.625em;
   padding: 0.625em 1.875em;
   font-weight: 600;
+  transition: all 0.3s ease-in;
 }
 
 .button-blue {
@@ -276,12 +283,7 @@ $mq-desktop: 1023px;
 // Hero Section
 
 .hero-section {
-  background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.75),
-      rgba(0, 0, 0, 0.75)
-    ),
-    url(../images/hero.jpg);
+  background-image: $bg-overlay, url(../images/hero.jpg);
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
@@ -442,20 +444,52 @@ $mq-desktop: 1023px;
   color: $color-nav-blue-hover !important;
 }
 
-// delete this after intersection observer works
+// about section
 
 .about-section {
   display: grid;
   grid-template-columns: 1fr;
-  margin: 0 auto;
+  margin: 0 1rem;
   padding: 0 1rem;
-  .about-header {
-    // grid-column: span 2;
-  }
   @media (min-width: $mq-tablet) {
     grid-template-columns: 1fr 1fr;
     .about-header {
       grid-column: span 2;
+    }
+  }
+}
+
+// Portfolio section
+
+.portfolio-section {
+  display: flex;
+  flex-direction: column;
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media (min-width: $mq-desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+// Testimonials section
+
+.testimonials-section {
+  padding-top: 0.5rem;
+  .overlay {
+    background-image: $bg-overlay, url(../images/testimonials.jpg);
+    background-position: 0px 0px, 50% 50%;
+    background-size: auto, cover;
+    background-repeat: repeat, no-repeat;
+    padding: 1rem;
+    .section-header {
+      color: white;
+      h2 {
+        color: inherit;
+        margin: 1.25rem auto 0.75rem;
+      }
     }
   }
 }
