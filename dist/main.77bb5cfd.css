@@ -84,6 +84,7 @@ body {
   font-weight: 400;
   background-color: #fff;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 section {
@@ -275,6 +276,11 @@ a {
   transition: all 0.4s ease-in;
   padding-top: 1rem;
 }
+@media (min-width: 1023px) {
+  .hero-section .hero-container .nav-container {
+    padding-inline: 2rem;
+  }
+}
 .hero-section .hero-container .nav-container.fixed-nav {
   position: fixed;
   background-color: rgba(34, 34, 34, 0.9);
@@ -454,15 +460,27 @@ a {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+.portfolio-section .cta-div {
+  padding-block: 1.5rem;
+}
+.portfolio-section .cta-div h3 {
+  font-size: 1.125rem;
+}
+@media (min-width: 767px) {
+  .portfolio-section .cta-div h3 {
+    font-size: 1.375rem;
+  }
+}
 
 .testimonials-section {
-  padding-top: 0.5rem;
+  padding-block: 1rem;
 }
 .testimonials-section .overlay {
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/testimonials.6958d63a.jpg);
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
+  width: 100vw;
   padding: 1rem;
 }
 .testimonials-section .overlay .section-header {
@@ -471,6 +489,129 @@ a {
 .testimonials-section .overlay .section-header h2 {
   color: inherit;
   margin: 1.25rem auto 0.75rem;
+}
+.testimonials-section .overlay .testimonial-items {
+  position: relative;
+  overflow-x: hidden;
+  width: 98vw;
+  margin: auto;
+}
+.testimonials-section .overlay .testimonial-items .wrapper {
+  width: 300%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  transition: all 0.5s ease;
+  transform: translateX(0);
+  margin: 1rem auto;
+}
+.testimonials-section .overlay .testimonial-items .wrapper .testimonial-item {
+  text-align: center;
+  color: white;
+  padding: 3rem;
+  margin: 1rem auto;
+  display: inline-block;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.8;
+  transition: all 0.5s ease-in-out;
+}
+@media (min-width: 767px) {
+  .testimonials-section .overlay .testimonial-items .wrapper .testimonial-item {
+    font-size: 1.2rem;
+  }
+  .testimonials-section .overlay .testimonial-items .wrapper .testimonial-item span {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1023px) {
+  .testimonials-section .overlay .testimonial-items .wrapper .testimonial-item {
+    font-size: 1.4rem;
+  }
+  .testimonials-section .overlay .testimonial-items .wrapper .testimonial-item span {
+    font-size: 1.2rem;
+  }
+}
+.testimonials-section .overlay .testimonial-items .wrapper .testimonial-item span {
+  display: block;
+  color: #4d8cf5;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-style: normal;
+}
+.testimonials-section .overlay .circle-button-div {
+  text-align: center;
+  margin: 2rem;
+}
+.testimonials-section .overlay .circle-button-div .circle {
+  aspect-ratio: 1;
+  width: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  transition: all 0.5s ease-in-out;
+}
+.testimonials-section .overlay .circle-button-div .circle.active {
+  background-color: rgb(255, 255, 255);
+}
+
+.services-section {
+  margin-bottom: 2rem;
+}
+@media (min-width: 767px) {
+  .services-section .secondary-header {
+    font-size: 1.125rem;
+  }
+}
+.services-section .services-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2rem;
+}
+@media (min-width: 767px) {
+  .services-section .services-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.services-section .services-container .services-item {
+  padding: 1rem;
+}
+.services-section .services-container .services-item i {
+  color: #4d8cf5;
+  font-size: 2rem;
+}
+.services-section .services-container .services-item h6 {
+  margin: 20px auto 10px;
+  font-size: 1.25rem;
+  color: #333;
+}
+.services-section .services-container .services-item p {
+  margin-bottom: 20px;
+}
+
+.team-section .align-center {
+  margin-bottom: 1.5rem;
+}
+.team-section .team-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 479px) {
+  .team-section .team-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1023px) {
+  .team-section .team-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.team-section .team-container .team-item {
+  padding: 1rem;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

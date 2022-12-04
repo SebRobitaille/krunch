@@ -133,6 +133,51 @@ mobileNavLinks.forEach(function (link) {
     navToggle.classList.remove("active");
   });
 });
+
+// Testimonial buttons
+var testimonialButtons = document.querySelectorAll(".circle");
+var testimonialButtonOne = document.getElementById("testimonial-1");
+var testimonialButtonTwo = document.getElementById("testimonial-2");
+var testimonialButtonThree = document.getElementById("testimonial-3");
+var testimonialItems = document.querySelectorAll(".testimonial-item");
+var testimonialOne = document.querySelector(".ti-1");
+var testimonialTwo = document.querySelector(".ti-2");
+var testimonialThree = document.querySelector(".ti-3");
+var testimonialWrapper = document.querySelector(".wrapper");
+var slideIndex = 0;
+testimonialButtonOne.addEventListener("click", function () {
+  removeActiveItems();
+  testimonialButtonOne.classList.add("active");
+  testimonialOne.classList.add("active");
+  slideIndex = 0;
+  slideTestomonials();
+});
+testimonialButtonTwo.addEventListener("click", function () {
+  removeActiveItems();
+  testimonialButtonTwo.classList.add("active");
+  testimonialTwo.classList.add("active");
+  slideIndex = 1;
+  slideTestomonials();
+});
+testimonialButtonThree.addEventListener("click", function () {
+  removeActiveItems();
+  testimonialButtonThree.classList.add("active");
+  testimonialThree.classList.add("active");
+  slideIndex = 2;
+  slideTestomonials();
+});
+function removeActiveItems() {
+  testimonialButtons.forEach(function (button) {
+    button.classList.remove("active");
+  });
+  testimonialItems.forEach(function (item) {
+    item.classList.remove("active");
+  });
+}
+function slideTestomonials() {
+  var slidePercent = 100 / 3 * slideIndex;
+  testimonialWrapper.style.transform = "translateX(-".concat(slidePercent, "%)");
+}
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

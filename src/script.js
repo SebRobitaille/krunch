@@ -15,3 +15,55 @@ mobileNavLinks.forEach((link) => {
     navToggle.classList.remove("active")
   })
 })
+
+// Testimonial buttons
+const testimonialButtons = document.querySelectorAll(".circle")
+const testimonialButtonOne = document.getElementById("testimonial-1")
+const testimonialButtonTwo = document.getElementById("testimonial-2")
+const testimonialButtonThree = document.getElementById("testimonial-3")
+
+const testimonialItems = document.querySelectorAll(".testimonial-item")
+const testimonialOne = document.querySelector(".ti-1")
+const testimonialTwo = document.querySelector(".ti-2")
+const testimonialThree = document.querySelector(".ti-3")
+
+const testimonialWrapper = document.querySelector(".wrapper")
+let slideIndex = 0
+
+testimonialButtonOne.addEventListener("click", () => {
+  removeActiveItems()
+  testimonialButtonOne.classList.add("active")
+  testimonialOne.classList.add("active")
+  slideIndex = 0
+  slideTestomonials()
+})
+
+testimonialButtonTwo.addEventListener("click", () => {
+  removeActiveItems()
+  testimonialButtonTwo.classList.add("active")
+  testimonialTwo.classList.add("active")
+  slideIndex = 1
+  slideTestomonials()
+})
+
+testimonialButtonThree.addEventListener("click", () => {
+  removeActiveItems()
+  testimonialButtonThree.classList.add("active")
+  testimonialThree.classList.add("active")
+  slideIndex = 2
+  slideTestomonials()
+})
+
+function removeActiveItems() {
+  testimonialButtons.forEach((button) => {
+    button.classList.remove("active")
+  })
+  testimonialItems.forEach((item) => {
+    item.classList.remove("active")
+  })
+}
+
+function slideTestomonials() {
+  let slidePercent = (100 / 3) * slideIndex
+  testimonialWrapper.style.transform = `translateX(-${slidePercent}%)`
+}
