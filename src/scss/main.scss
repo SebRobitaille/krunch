@@ -306,6 +306,7 @@ $mq-desktop: 1023px;
       padding: 0.25rem;
       background-color: transparent;
       transition: all 0.4s ease-in;
+      padding-top: 1rem;
       &.fixed-nav {
         position: fixed;
         background-color: $color-overlay;

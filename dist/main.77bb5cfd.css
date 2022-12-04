@@ -273,6 +273,7 @@ a {
   padding: 0.25rem;
   background-color: transparent;
   transition: all 0.4s ease-in;
+  padding-top: 1rem;
 }
 .hero-section .hero-container .nav-container.fixed-nav {
   position: fixed;
