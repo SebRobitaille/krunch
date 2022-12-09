@@ -153,10 +153,11 @@ function buildThresholdList() {
 }
 function handleIntersect(entries, observer) {
   entries.forEach(function (entry) {
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting && entry.boundingClientRect.y < 0) {
       entry.target.classList.add("active-section");
       toggleStickyNav();
       activeLink();
+      console.log(entry.target);
       // visibleSections()
     } else {
       entry.target.classList.remove("active-section");
@@ -213,7 +214,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65518" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58194" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

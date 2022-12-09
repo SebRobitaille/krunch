@@ -45,10 +45,11 @@ function buildThresholdList() {
 
 function handleIntersect(entries, observer) {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting && entry.boundingClientRect.y < 0) {
       entry.target.classList.add("active-section")
       toggleStickyNav()
       activeLink()
+      console.log(entry.target)
       // visibleSections()
     } else {
       entry.target.classList.remove("active-section")
