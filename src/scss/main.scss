@@ -282,6 +282,10 @@ $mq-desktop: 1023px;
   display: none;
 }
 
+#nav {
+  z-index: 100000;
+}
+
 // Hero Section
 
 .hero-section {
@@ -480,6 +484,15 @@ $mq-desktop: 1023px;
     }
     .pf-item {
       position: relative;
+      &:hover {
+        .overlay {
+          opacity: 1;
+          span {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      }
       .overlay {
         position: absolute;
         top: 0;
@@ -498,6 +511,17 @@ $mq-desktop: 1023px;
         text-transform: uppercase;
         font-weight: 700;
         font-size: 1.25rem;
+
+        opacity: 0;
+        transition: all 0.5s ease;
+        span {
+          transition: all 0.2s ease;
+          transition-delay: 500ms;
+          transform: translateY(100%);
+          opacity: 0;
+          text-shadow: 0 1px 0 #000;
+          font-size: 1.25rem;
+        }
       }
     }
   }
@@ -652,6 +676,60 @@ $mq-desktop: 1023px;
     }
     .team-item {
       padding: 1rem;
+      text-align: center;
+      color: #333;
+      h4 {
+        margin-top: 1rem;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+      h6 {
+        margin: 0.5rem auto;
+        font-size: 0.875rem;
+        font-weight: 400;
+      }
+      .image-wrapper {
+        position: relative;
+        &:hover {
+          .socials {
+            opacity: 1;
+            i {
+              transform: translateY(0);
+            }
+          }
+        }
+        .socials {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $color-overlay-portfolio;
+
+          transition: all 0.5s ease;
+          opacity: 0;
+          i {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: all 0.5s ease;
+            background-color: #222;
+            width: 32px;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease;
+            transform: translateY(100%);
+            &:hover {
+              color: $color-nav-blue-hover;
+            }
+          }
+        }
+      }
     }
   }
 }
