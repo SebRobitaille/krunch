@@ -49,8 +49,7 @@ function handleIntersect(entries, observer) {
       entry.target.classList.add("active-section")
       toggleStickyNav()
       activeLink()
-      console.log(entry.target)
-      // visibleSections()
+      // lastActive()
     } else {
       entry.target.classList.remove("active-section")
     }
@@ -79,7 +78,8 @@ function activeLink() {
   })
 }
 
-// function visibleSections() {
-//   const visibles = document.querySelectorAll(".active-section")
-//   console.log(visibles)
+// function lastActive() {
+//   const actives = document.querySelectorAll(".active-section")
+//   const activesArray = Array.prototype.slice.call(actives)
+//   console.log(activesArray)
 // }

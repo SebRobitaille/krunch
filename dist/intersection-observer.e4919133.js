@@ -157,8 +157,7 @@ function handleIntersect(entries, observer) {
       entry.target.classList.add("active-section");
       toggleStickyNav();
       activeLink();
-      console.log(entry.target);
-      // visibleSections()
+      // lastActive()
     } else {
       entry.target.classList.remove("active-section");
     }
@@ -185,9 +184,10 @@ function activeLink() {
   });
 }
 
-// function visibleSections() {
-//   const visibles = document.querySelectorAll(".active-section")
-//   console.log(visibles)
+// function lastActive() {
+//   const actives = document.querySelectorAll(".active-section")
+//   const activesArray = Array.prototype.slice.call(actives)
+//   console.log(activesArray)
 // }
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -214,7 +214,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58194" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53527" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
