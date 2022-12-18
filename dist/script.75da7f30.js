@@ -178,6 +178,19 @@ function slideTestomonials() {
   var slidePercent = 100 / 3 * slideIndex;
   testimonialWrapper.style.transform = "translateX(-".concat(slidePercent, "%)");
 }
+
+// Contact submit button
+var submitBtn = document.getElementById("submit-btn");
+var inputs = document.querySelectorAll(".form input");
+var textarea = document.querySelector(".input-large");
+submitBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  alert("Thank you for your message! We will get back to you shortly.");
+  inputs.forEach(function (input) {
+    input.value = "";
+  });
+  textarea.value = "";
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

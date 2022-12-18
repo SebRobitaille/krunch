@@ -28,6 +28,10 @@ ol[role="list"] {
 }
 
 /* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
 html:focus-within {
   scroll-behavior: smooth;
 }
@@ -731,5 +735,136 @@ $mq-desktop: 1023px;
         }
       }
     }
+  }
+}
+
+// Blog Section
+
+.blog-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .blog-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    @media (min-width: $mq-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .blog-item {
+      h4 {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #333;
+      }
+      h6 {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: #999;
+        font-weight: 600;
+      }
+      .cta {
+        color: $color-nav-blue-hover;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 0.5s ease;
+        &:hover {
+          color: #333;
+        }
+      }
+    }
+  }
+  .button {
+    margin: 2rem auto;
+    a {
+      color: #333;
+    }
+  }
+}
+
+// Contact Section
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form-container {
+    margin: 1rem auto;
+    width: min(90%, 1000px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1rem;
+      input {
+        height: 50px;
+        padding: 0 1rem;
+        border: 1px solid #cccccc;
+        color: #333;
+      }
+      textarea {
+        min-height: 200px;
+        vertical-align: top;
+        padding: 1rem;
+        border: 1px solid #cccccc;
+        color: #333;
+      }
+      .input-large {
+        min-height: 200px;
+        vertical-align: top;
+        padding: 1rem;
+        border: 1px solid #cccccc;
+        color: #333;
+      }
+      @media (min-width: $mq-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        .input-medium {
+          grid-column: span 2;
+        }
+        .input-large {
+          grid-column: span 2;
+        }
+      }
+    }
+    .button {
+      margin: 2rem auto;
+      a {
+        color: #333;
+      }
+    }
+  }
+}
+
+// Footer
+
+.footer-section {
+  background-color: #222;
+  color: #fff;
+  padding: 1rem;
+  width: 100%;
+  .socials-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    a:hover {
+      color: $color-nav-blue-hover;
+    }
+  }
+  p {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #999;
+    text-transform: uppercase;
   }
 }

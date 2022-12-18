@@ -67,3 +67,17 @@ function slideTestomonials() {
   let slidePercent = (100 / 3) * slideIndex
   testimonialWrapper.style.transform = `translateX(-${slidePercent}%)`
 }
+
+// Contact submit button
+const submitBtn = document.getElementById("submit-btn")
+const inputs = document.querySelectorAll(".form input")
+const textarea = document.querySelector(".input-large")
+
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault()
+  alert("Thank you for your message! We will get back to you shortly.")
+  inputs.forEach((input) => {
+    input.value = ""
+  })
+  textarea.value = ""
+})
