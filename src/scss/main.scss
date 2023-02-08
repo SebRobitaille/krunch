@@ -465,10 +465,23 @@ $mq-desktop: 1023px;
   grid-template-columns: 1fr;
   margin: 0 1rem;
   padding: 0 1rem;
+  .p-div {
+    margin: 0 auto;
+    max-width: 90%;
+    @media (min-width: $mq-tablet) {
+      max-width: 80%;
+      font-size: 1.225rem;
+    }
+  }
   @media (min-width: $mq-tablet) {
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     .about-header {
       grid-column: span 2;
+    }
+    img {
+      max-width: 100%;
+      margin: 0 auto;
     }
   }
 }
