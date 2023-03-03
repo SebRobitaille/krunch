@@ -446,12 +446,27 @@ a {
   margin: 0 1rem;
   padding: 0 1rem;
 }
+.about-section .p-div {
+  margin: 0 auto;
+  max-width: 90%;
+}
+@media (min-width: 767px) {
+  .about-section .p-div {
+    max-width: 80%;
+    font-size: 1.225rem;
+  }
+}
 @media (min-width: 767px) {
   .about-section {
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
   .about-section .about-header {
     grid-column: span 2;
+  }
+  .about-section img {
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
 
